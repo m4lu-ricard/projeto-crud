@@ -17,7 +17,9 @@ app.get('/', (req, res)=>{
 
 //puxar as rotas de API de usuarios
 const apiRoutes = require('./routes/api')
-app.use('/api/users', apiRoutes);
+app.use(express.json()); //tratar a requisição do tipo JSON
+app.use('/api/users', apiRoutes); // alcança as rotas criadas no arquivo "api.js"
+
 
 app.listen(port, () =>{
     console.log("servidor funcionando");
